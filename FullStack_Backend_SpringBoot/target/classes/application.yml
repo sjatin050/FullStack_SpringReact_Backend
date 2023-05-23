@@ -1,0 +1,59 @@
+#spring.datasource.url = jdbc:mysql://localhost:3306/lup_sample
+#spring.datasource.username = root
+#spring.datasource.password = J@tin123
+#spring.datasource.driver-class-name = com.mysql.cj.jdbc.Driver
+#
+#spring.jpa.hibernate.ddl-auto = create-drop
+#spring.jpa.show-sql=false
+#spring.jpa.properties.hibernate.format_sql=true
+#spring.jpa.database=mysql
+#spring.jpa.database-platform = org.hibernate.dialect.MySQLDialect
+#
+#spring.data.mongodb.uri = mongodb://localhost:27017
+#spring.data.mongodb.database = lup-admin-panel
+#
+#application.security.jwt.secret-key = 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+#
+#application.security.jwt.expiration = 86400000
+#application.security.refresh-token.expiration = 604800000
+#
+#server.port=8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/lup_sample
+    username: root
+    password: J@tin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+  data:
+    mongodb:
+      uri : mongodb://localhost:27017
+      database : lup-admin-panel
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+
+server:
+  port: 8083
+#  ssl:
+#    enabled: true
+#    key-store: classpath:ssl/keystore.p12
+#    key-store-password: same
+#    key-store-type: PKCS12
+#    key-password: same
+#    key-alias: localhost
+
+
+
