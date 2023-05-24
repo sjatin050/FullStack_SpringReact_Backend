@@ -1,4 +1,4 @@
-package com.panel.admin.user.auth;
+package com.panel.admin.lup.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +34,11 @@ public class AuthenticationController {
       @RequestBody AuthenticationRequest request
   ) {
     return ResponseEntity.ok(service.authenticate(request));
+  }
+
+  @PostMapping("/changePassword")
+  public ResponseEntity<AuthenticationResponse> changePassword(@RequestBody ChangePasswordRequest request){
+    return ResponseEntity.ok(service.changePassword(request));
   }
 
 }
