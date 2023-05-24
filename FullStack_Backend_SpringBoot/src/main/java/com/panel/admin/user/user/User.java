@@ -1,4 +1,4 @@
-package com.panel.admin.user.user;
+package com.panel.admin.lup.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -33,13 +33,17 @@ public class User implements UserDetails {
   private Integer id;
 
   @NotNull
+  @Email(regexp = "^(?=.*[@])(?=.*[.])(?=.*@(paytm\\.com|ocltp\\.com|paytmbank\\.com|paytmpayment\\.com)$).+@.*$", message = "Invalid email address")
+  private String RegisteredBy;
+
+  @NotNull
   private String firstname;
 
   @NotNull
   private String lastname;
 
   @NotNull
-  @Email(regexp = "^(?=.*[@])(?=.*[.])(?=.*@(gmail\\.com|yahoo\\.com|hotmail\\.com|jatin\\.com)$).+@.*$", message = "Invalid email address")
+  @Email(regexp = "^(?=.*[@])(?=.*[.])(?=.*@(paytm\\.com|ocltp\\.com|paytmbank\\.com|paytmpayment\\.com)$).+@.*$", message = "Invalid email address")
   private String email;
 
   @NotNull
@@ -62,6 +66,10 @@ public class User implements UserDetails {
   @Override
   public String getUsername() {
     return email;
+  }
+
+  public String getRegisteredBy() {
+    return RegisteredBy;
   }
 
   @Override
