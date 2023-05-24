@@ -1,7 +1,7 @@
-package com.panel.admin.user;
+package com.panel.admin.lup;
 
-import com.panel.admin.user.auth.AuthenticationService;
-import com.panel.admin.user.auth.RegisterRequest;
+import com.panel.admin.lup.auth.AuthenticationService;
+import com.panel.admin.lup.auth.RegisterRequest;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import static com.panel.admin.user.user.Role.ADMIN;
-import static com.panel.admin.user.user.Role.USER;
+import static com.panel.admin.lup.user.Role.ADMIN;
+import static com.panel.admin.lup.user.Role.USER;
 
 
 @SpringBootApplication
@@ -26,19 +26,21 @@ public class SecurityApplication {
 	) {
 		return args -> {
 			var admin = RegisterRequest.builder()
+					.RegisteredBy("admin@paytm.com")
 					.firstname("ADMIN")
 					.lastname("Singh")
-					.email("admin@gmail.com")
-					.password("P@ssword123")
+					.email("admin@paytm.com")
+					.password("J@tin123")
 					.role(ADMIN)
 					.build();
 			System.out.println("Admin token: " + service.register(admin).getAuthenticationResponse().getAccessToken());
 
 			var manager = RegisterRequest.builder()
+					.RegisteredBy("user@paytm.com")
 					.firstname("USER")
 					.lastname("Singh")
-					.email("user@hotmail.com")
-					.password("P@ssword123")
+					.email("user@paytm.com")
+					.password("J@tin123")
 					.role(USER)
 					.build();
 			System.out.println("Manager token: " + service.register(manager).getAuthenticationResponse().getAccessToken());
